@@ -21,6 +21,12 @@ public class MainFragment extends Fragment{
         super.onActivityCreated(savedInstanceState);
 
 //        Register Controller
+        registerController();
+
+
+    }   // Main Method
+
+    private void registerController() {
         TextView textView = getView().findViewById(R.id.txtNewRegister);
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,9 +41,7 @@ public class MainFragment extends Fragment{
 
             }   // onClick
         });
-
-
-    }   // Main Method
+    }
 
     @Nullable
     @Override
