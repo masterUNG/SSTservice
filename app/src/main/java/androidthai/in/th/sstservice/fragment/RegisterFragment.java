@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -11,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidthai.in.th.sstservice.MainActivity;
 import androidthai.in.th.sstservice.R;
@@ -90,6 +92,19 @@ public class RegisterFragment extends Fragment {
                 postUserToServer.execute(nameString, userString, passwordString,
                         myConstant.getUrlPostUserString());
                 String resultString = postUserToServer.get();
+                Log.d(tag, "Result ==> " + resultString);
+
+                if (Boolean.parseBoolean(resultString)) {
+
+                    getActivity().getSupportFragmentManager().popBackStack();
+                    Toast.makeText(getActivity(), "Upload New User Success",
+                            Toast.LENGTH_SHORT).show();
+
+                } else {
+                    Toast.makeText(getActivity(), "Upload New User Non Success",
+                            Toast.LENGTH_SHORT).show();
+
+                }
 
 
             } catch (Exception e) {
