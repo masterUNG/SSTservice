@@ -15,6 +15,8 @@ import android.widget.EditText;
 import androidthai.in.th.sstservice.MainActivity;
 import androidthai.in.th.sstservice.R;
 import androidthai.in.th.sstservice.utility.MyAlertDialog;
+import androidthai.in.th.sstservice.utility.MyConstant;
+import androidthai.in.th.sstservice.utility.PostUserToServer;
 
 /**
  * Created by masterung on 14/12/2017 AD.
@@ -80,9 +82,21 @@ public class RegisterFragment extends Fragment {
         } else {
 //            No Space
 
-        }
+            try {
+
+                MyConstant myConstant = new MyConstant();
+                String tag = "20DecV1";
+                PostUserToServer postUserToServer = new PostUserToServer(getActivity());
+                postUserToServer.execute(nameString, userString, passwordString,
+                        myConstant.getUrlPostUserString());
+                String resultString = postUserToServer.get();
 
 
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }   // if
 
     }   // saveController
 
