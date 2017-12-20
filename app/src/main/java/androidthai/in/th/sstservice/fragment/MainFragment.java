@@ -67,7 +67,6 @@ public class MainFragment extends Fragment{
                         Log.d(tag, "JSON ==> " + jsonString);
 
 
-
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
