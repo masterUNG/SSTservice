@@ -96,6 +96,13 @@ public class MainFragment extends Fragment{
                             Toast.makeText(getActivity(), "Welcome " + loginStrings[1],
                                     Toast.LENGTH_SHORT).show();
 
+//                            Replace and Put Data to MenuFoodFragment
+                            getActivity().getSupportFragmentManager().beginTransaction()
+                                    .replace(R.id.contentMainFragment,
+                                            MenuFoodFragment.menuFoodInstance(loginStrings))
+                                    .commit();
+
+
                         } else {
 //                            Password False
                             myAlertDialog.normalDialog("Password False",
